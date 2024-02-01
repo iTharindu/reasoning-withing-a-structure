@@ -104,3 +104,233 @@ verbs = ["like", "admire", "pet", "make", "break", "hit", "eat", "kill", "fight"
          "punch", "shoot", "threaten", "tolerate", "warn"]
 
 
+
+
+class Anaphora:
+
+    def __init__(self):
+      pass
+
+
+    def template_anaphora(self, template_name):
+      templates = {
+          "2q_n_v_n_v_si_si": "{} {} {} {} {} who {} {}",
+          "2q_n_v_n_v_si_pl": "{} {} {} {} {} who {} {}",
+          "2q_n_v_n_v_pl_si": "{} {} {} {} {} who {} {}",
+          "2q_n_v_n_v_pl_pl": "{} {} {} {} {} who {} {}",
+          "2q_n_v_n_v_neg_si_si": "{} {} {} {} {} who does not {} {}",
+          "2q_n_v_n_v_neg_si_pl": "{} {} {} {} {} who do not {} {}",
+          "2q_n_v_n_v_neg_pl_si": "{} {} {} {} {} who does not {} {}",
+          "2q_n_v_n_v_neg_pl_pl": "{} {} {} {} {} who do not {} {}",
+          "2q_n_v_neg_n_v_si_si": "{} {} does not {} {} {} who {} {}",
+          "2q_n_v_neg_n_v_pl_si": "{} {} do not {} {} {} who {} {}",
+          "2q_n_v_neg_n_v_si_pl": "{} {} does not {} {} {} who {} {}",
+          "2q_n_v_neg_n_v_pl_pl": "{} {} do not {} {} {} who {} {}",
+          "2q_n_v_neg_n_v_neg_si_si": "{} {} does not {} {} {} who does not {} {}",
+          "2q_n_v_neg_n_v_neg_si_pl": "{} {} does not {} {} {} who do not {} {}",
+          "2q_n_v_neg_n_v_neg_pl_si": "{} {} do not {} {} {} who does not {} {}",
+          "2q_n_v_neg_n_v_neg_pl_pl": "{} {} do not {} {} {} who do not {} {}",
+          "2q_n_v_n_neg_v_si_si": "{} {} {} {} non-{} who {} {}",
+          "2q_n_v_n_neg_v_si_pl": "{} {} {} {} non-{} who {} {}",
+          "2q_n_v_n_neg_v_pl_si": "{} {} {} {} non-{} who {} {}",
+          "2q_n_v_n_neg_v_pl_pl": "{} {} {} {} non-{} who {} {}",
+          "2q_n_v_n_neg_v_neg_si_si": "{} {} {} {} non-{} who does not {} {}",
+          "2q_n_v_n_neg_v_neg_si_pl": "{} {} {} {} non-{} who do not {} {}",
+          "2q_n_v_n_neg_v_neg_pl_si": "{} {} {} {} non-{} who does not {} {}",
+          "2q_n_v_n_neg_v_neg_pl_pl": "{} {} {} {} non-{} who do not {} {}",
+          "2q_n_v_neg_n_neg_v_si_si": "{} {} does not {} {} non-{} who {} {}",
+          "2q_n_v_neg_n_neg_v_pl_si": "{} {} do not {} {} non-{} who {} {}",
+          "2q_n_v_neg_n_neg_v_si_pl": "{} {} does not {} {} non-{} who {} {}",
+          "2q_n_v_neg_n_neg_v_pl_pl": "{} {} do not {} {} non-{} who {} {}",
+          "2q_n_v_neg_n_neg_v_neg_si_si": "{} {} does not {} {} non-{} who does not {} {}",
+          "2q_n_v_neg_n_neg_v_neg_si_pl": "{} {} does not {} {} non-{} who do not {} {}",
+          "2q_n_v_neg_n_neg_v_neg_pl_si": "{} {} do not {} {} non-{} who does not {} {}",
+          "2q_n_v_neg_n_neg_v_neg_pl_pl": "{} {} do not {} {} non-{} who do not {} {}",
+          "2q_n_neg_v_n_v_si_si": "{} non-{} {} {} {} who {} {}",
+          "2q_n_neg_v_n_v_si_pl": "{} non-{} {} {} {} who {} {}",
+          "2q_n_neg_v_n_v_pl_si": "{} non-{} {} {} {} who {} {}",
+          "2q_n_neg_v_n_v_pl_pl": "{} non-{} {} {} {} who {} {}",
+          "2q_n_neg_v_n_v_neg_si_si": "{} non-{} {} {} {} who does not {} {}",
+          "2q_n_neg_v_n_v_neg_si_pl": "{} non-{} {} {} {} who do not {} {}",
+          "2q_n_neg_v_n_v_neg_pl_si": "{} non-{} {} {} {} who does not {} {}",
+          "2q_n_neg_v_n_v_neg_pl_pl": "{} non-{} {} {} {} who do not {} {}",
+          "2q_n_neg_v_neg_n_v_si_si": "{} non-{} does not {} {} {} who {} {}",
+          "2q_n_neg_v_neg_n_v_si_pl": "{} non-{} does not {} {} {} who {} {}",
+          "2q_n_neg_v_neg_n_v_pl_si": "{} non-{} do not {} {} {} who {} {}",
+          "2q_n_neg_v_neg_n_v_pl_pl": "{} non-{} do not {} {} {} who {} {}",
+          "2q_n_neg_v_neg_n_v_neg_si_si": "{} non-{} does not {} {} {} who does not {} {}",
+          "2q_n_neg_v_neg_n_v_neg_si_pl": "{} non-{} does not {} {} {} who do not {} {}",
+          "2q_n_neg_v_neg_n_v_neg_pl_si": "{} non-{} do not {} {} {} who does not {} {}",
+          "2q_n_neg_v_neg_n_v_neg_pl_pl": "{} non-{} do not {} {} {} who do not {} {}",
+          "2q_n_neg_v_n_neg_v_si_si": "{} non-{} {} {} non-{} who {} {}",
+          "2q_n_neg_v_n_neg_v_si_pl": "{} non-{} {} {} non-{} who {} {}",
+          "2q_n_neg_v_n_neg_v_pl_si": "{} non-{} {} {} non-{} who {} {}",
+          "2q_n_neg_v_n_neg_v_pl_pl": "{} non-{} {} {} non-{} who {} {}",
+          "2q_n_neg_v_n_neg_v_neg_si_si": "{} non-{} {} {} non-{} who does not {} {}",
+          "2q_n_neg_v_n_neg_v_neg_si_pl": "{} non-{} {} {} non-{} who do not {} {}",
+          "2q_n_neg_v_n_neg_v_neg_pl_si": "{} non-{} {} {} non-{} who does not {} {}",
+          "2q_n_neg_v_n_neg_v_neg_pl_pl": "{} non-{} {} {} non-{} who do not {} {}",
+          "2q_n_neg_v_neg_n_neg_v_si_si": "{} non-{} does not {} {} non-{} who {} {}",
+          "2q_n_neg_v_neg_n_neg_v_si_pl": "{} non-{} does not {} {} non-{} who {} {}",
+          "2q_n_neg_v_neg_n_neg_v_pl_si": "{} non-{} do not {} {} non-{} who {} {}",
+          "2q_n_neg_v_neg_n_neg_v_pl_pl": "{} non-{} do not {} {} non-{} who {} {}",
+          "2q_n_neg_v_neg_n_neg_v_neg_si_si": "{} non-{} does not {} {} non-{} who does not {} {}",
+          "2q_n_neg_v_neg_n_neg_v_neg_si_pl": "{} non-{} does not {} {} non-{} who do not {} {}",
+          "2q_n_neg_v_neg_n_neg_v_neg_pl_si": "{} non-{} do not {} {} non-{} who does not {} {}",
+          "2q_n_neg_v_neg_n_neg_v_neg_pl_pl": "{} non-{} do not {} {} non-{} who do not {} {}",
+          "propn_v_n_v_si": "{} {} {} {} who {} {}",
+          "propn_v_n_v_pl": "{} {} {} {} who {} {}",
+          "propn_v_n_v_neg_si": "{} {} {} {} who does not {} {}",
+          "propn_v_n_v_neg_pl": "{} {} {} {} who do not {} {}",
+          "propn_v_neg_n_v_si": "{} does not {} {} {} who {} {}",
+          "propn_v_neg_n_v_pl": "{} does not {} {} {} who {} {}",
+          "propn_v_neg_n_v_neg_si": "{} does not {} {} {} who does not {} {}",
+          "propn_v_neg_n_v_neg_pl": "{} does not {} {} {} who do not {} {}",
+          "propn_v_n_neg_v_si": "{} {} {} non-{} who {} {}",
+          "propn_v_n_neg_v_pl": "{} {} {} non-{} who {} {}",
+          "propn_v_n_neg_v_neg_si": "{} {} {} non-{} who does not {} {}",
+          "propn_v_n_neg_v_neg_pl": "{} {} {} non-{} who do not {} {}",
+          "propn_v_neg_n_neg_v_si": "{} does not {} {} non-{} who {} {}",
+          "propn_v_neg_n_neg_v_pl": "{} does not {} {} non-{} who {} {}",
+          "propn_v_neg_n_neg_v_neg_si": "{} does not {} {} non-{} who does not {} {}",
+          "propn_v_neg_n_neg_v_neg_pl": "{} does not {} {} non-{} who do not {} {}",
+      }
+
+      return templates[template_name]
+
+
+    def select_det(self, quantifier):
+      det = None
+      if quantifier == "all":
+        det = random.choice(["all", "every"])
+      elif quantifier == "exists":
+        det = random.choice(["some", "a"])
+      return det
+
+    def natural_language_sentence_generation(self, quantifiers, variables, verb_functions, negations, type, male_name = False):
+      dets = None
+
+      if type == "2_quantifiers":
+        dets = [self.select_det(quantifiers[0]), self.select_det(quantifiers[1])]
+        template_id = "2q_n_"
+        if negations[variables[0]] == True:
+          template_id += "neg_"
+        template_id += "v_"
+        if negations[verb_functions[1]] == True:
+          if quantifiers[0] == "all":
+            dets[0] = "no"
+            if quantifiers[1] == "all":
+              dets[1] = "any"
+            else :
+              dets[1] = "every"
+          elif (quantifiers[0] == "exists") and (quantifiers[1] == "exists"):
+            dets[1] = "no"
+          else :
+            template_id += "neg_"
+        template_id += "n_"
+        if negations[variables[1]] == True:
+          template_id += "neg_"
+        template_id += "v_"
+        if negations[verb_functions[0]] == True:
+          template_id += "neg_"
+
+        if dets[0] in ["all", "some"]:
+          template_id += "pl_"
+          pronoun = "them"
+        else :
+          template_id += "si_"
+          pronoun = random.choice(["him", "her"])
+
+        if dets[1] in ["all", "some"]:
+          template_id += "pl"
+        else :
+          template_id += "si"
+
+        return self.template_anaphora(template_id).format(dets[0], variables[0], verb_functions[1], dets[1], variables[1], verb_functions[0], pronoun)
+
+      else :
+        dets = [self.select_det(quantifiers[0])]
+        template_id = "propn_v_"
+        if negations[verb_functions[1]] == True :
+          if quantifiers[0] == "exists":
+            dets[0] = "no"
+          else :
+            template_id += "neg_"
+        template_id += "n_"
+        if negations[variables[1]] == True :
+          template_id += "neg_"
+        template_id += "v_"
+        if negations[verb_functions[0]] == True :
+          template_id += "neg_"
+
+        template_id += "pl" if dets[0] in ["all", "some"] else "si"
+
+        pronoun = "him" if male_name else "her"
+
+        return self.template_anaphora(template_id).format(variables[0], verb_functions[1], dets[0], variables[1], verb_functions[0], pronoun)
+
+
+
+    def anaphora_generate_logic_str(self, quantifiers, variables, verb_functions, negations, type):
+
+      variables = ["-"+x if negations[x] else x for x in variables]
+      verb_functions = ["-"+x if negations[x] else x for x in verb_functions]
+
+
+      if type == "2_quantifiers":
+        if quantifiers == ["all", "all"]:
+          return "all x.({}(x) -> all y.({}(y) & {}(y,x) -> {}(x,y)))".format(variables[0], variables[1], verb_functions[0], verb_functions[1])
+        elif quantifiers == ["all", "exists"]:
+          return "all x.({}(x) -> exists y.({}(y) & {}(y,x) & {}(x,y)))".format(variables[0], variables[1], verb_functions[0], verb_functions[1])
+        elif quantifiers == ["exists", "all"]:
+          return "exists x.({}(x) & all y.({}(y) & {}(y,x) -> {}(x,y)))".format(variables[0], variables[1], verb_functions[0], verb_functions[1])
+        elif quantifiers == ["exists", "exists"]:
+          return "exists x.({}(x) & exists y.({}(y) & {}(y,x) & {}(x,y)))".format(variables[0], variables[1], verb_functions[0], verb_functions[1])
+      else :
+        if quantifiers == ["all"]:
+          return "all x.({}(x) & {}(x, {}) -> {}({}, x))".format(variables[1], verb_functions[0] ,variables[0], verb_functions[1], variables[0])
+        else :
+          return "exists x.({}(x) & {}(x, {}) & {}({}, x))".format(variables[1], verb_functions[0] ,variables[0], verb_functions[1], variables[0])
+
+
+    def generate_sentence_anaphora(self, nouns, domain, verbs, prob = 0.85):
+
+      verb_functions = random.sample(verbs, 2)
+
+      male_name = False
+
+      negations = None
+
+      if random.uniform(0,1) < prob :
+        noun_functions = random.sample(nouns, 2)
+        type = "2_quantifiers"
+        quantifiers = [random.choice(["all", "exists"]), random.choice(["all", "exists"])]
+        variables = random.sample(nouns, 2)
+
+
+        negations = {variables[0] : random.choice([True, False]),
+                  variables[1] : random.choice([True, False]),
+                  verb_functions[0] : random.choice([True, False]),
+                  verb_functions[1] : random.choice([True, False])}
+
+      else :
+        quantifiers = [random.choice(["all", "exists"])]
+
+        type = "PropN"
+
+        variables = [random.choice(domain), random.choice(nouns)]
+        negations = {variables[0] : False,
+                    variables[1] : random.choice([True, False]),
+                    verb_functions[0] : random.choice([True, False]),
+                    verb_functions[1] : random.choice([True, False])}
+
+
+      male_name = False if variables[0] in female_names else True
+
+
+      logic = self.anaphora_generate_logic_str(quantifiers, variables, verb_functions, negations, type)
+      sentence = self.natural_language_sentence_generation(quantifiers, variables, verb_functions, negations, type, male_name)
+
+      return logic, sentence
+
+
